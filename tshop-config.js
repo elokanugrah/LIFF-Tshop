@@ -83,19 +83,12 @@ var mycart = [];
                     '<td>' + item.Nama + ' </td>' +
                     '<td>' + item.Qty + ' </td>' +
                     '<td>' + formatRupiah(item.Price) + ' </td>' +
-                    '<td><button class="btn btn-danger btn-circle" onclick="deleteItem(' + i + ')"><i class="fa fa-trash"  > </i></button></td>';
+                    '<td><button class="btn btn-danger btn-circle btn-small" onclick="deleteItem(' + i + ')"><i class="fa fa-trash"  > </i></button></td>';
                 data_app += '</tr>';
             }
  
             data_app += '</tbody></table>';
             $('#cart-body').html(data_app);
-
-          for (var i in mycart) { //tampilkan data dari local storage mycart, template bisa anda sesuaikan
-            var item = mycart[i];
-            var row = '<div class="media"><div class="media-left media-top"></div><div class="media-body"><div class="col-lg-12"><div class="col-lg-10"><p>Nama Product <span style="padding-left:0.8em">: </span>'
-                        + item.Nama +'</p><p>Jumlah <span style="padding-left:4em">:</span> '+ item.Qty +'</p><p>Harga <span style="padding-left:4.5em">:</span> '+ formatRupiah(item.Price) +'</p></div><div class="col-lg-2"><br><button class="btn btn-danger btn-circle" onclick="deleteItem(' 
-                              + i + ')"><i class="fa fa-trash"  > </i></button></div></div></div></div><hr>' ;
-          }
 
           // untuk total
           var total = 0;

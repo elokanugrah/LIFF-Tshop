@@ -64,6 +64,7 @@ function initializeLiff(myLiffId) {
 function initializeApp() {
     displayLiffData();
     displayIsInClientInfo();
+    displayClientProfile();
     registerButtonHandlers();
  
     // check if the user is logged in/out, and disable inappropriate button
@@ -93,6 +94,16 @@ function displayIsInClientInfo() {
     } else {
         document.getElementById('isInClientMessage').textContent = 'You are opening the app in an external browser.';
     }
+}
+
+function displayClientProfile() {
+    liff.getProfile().then(function(profile) {
+        document.getElementById('gotoLogin').classList.add('hidden');
+        document.getElementById('nickname').textContent = "Hai, " + profile.displayName;
+    }).catch(function(error) {
+        document.getElementById('gotoLogin').classList.remove('hidden');
+        document.getElementById('nickname').textContent = "";
+    });
 }
 
 /**
