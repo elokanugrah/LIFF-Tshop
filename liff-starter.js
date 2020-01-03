@@ -159,8 +159,9 @@ function registerButtonHandlers() {
             var chat_message = "Berikut keranjang belanjaan yang harus anda bayarkan: \n\n";
             for (i in mycart) {
                 var item = mycart[i];
+                var num = i+1;
                 chat_message +=
-                    'No. ' + (i+1) + ' \n' +
+                    'No. ' + num + ' \n' +
                     'Nama Produk: ' + item.Nama + ' \n' +
                     'Jumlah: ' + item.Qty + ' \n' +
                     'Harga: ' + formatRupiah(item.Price) + ' \n';
