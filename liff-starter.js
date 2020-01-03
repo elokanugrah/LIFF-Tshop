@@ -156,16 +156,17 @@ function registerButtonHandlers() {
             // alert(formatRupiah(total));
             sendAlertIfNotInClient();
         } else {
-            var chat_message = "";
+            var chat_message = "Berikut keranjang belanjaan yang harus anda bayarkan: \n\n";
             for (i in mycart) {
                 var item = mycart[i];
                 chat_message +=
+                    'No. ' + i+1 + ' \n' +
                     'Nama Produk: ' + item.Nama + ' \n' +
-                    'Jumlah' + item.Qty + ' \n' +
-                    'Harga' + formatRupiah(item.Price) + ' \n';
+                    'Jumlah: ' + item.Qty + ' \n' +
+                    'Harga: ' + formatRupiah(item.Price) + ' \n';
                 chat_message += '\n';
             }
-            chat_message += 'Total belanja yang harus dibayar' + formatRupiah(total);
+            chat_message += 'Total belanja \n' + formatRupiah(total);
             liff.sendMessages([{
                 'type': 'text',
                 'text': chat_message
