@@ -100,6 +100,7 @@ function displayClientProfile() {
     liff.getProfile().then(function(profile) {
         document.getElementById('gotoLogin').classList.add('hidden');
         document.getElementById('nickname').textContent = "Hai, " + profile.displayName;
+        document.getElementById("profileImage").src = profile.pictureUrl;;
     }).catch(function(error) {
         document.getElementById('gotoLogin').classList.remove('hidden');
         document.getElementById('nickname').textContent = "";

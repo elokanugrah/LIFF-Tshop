@@ -15,10 +15,17 @@
 
 <body>
 <div class="container">
-<h1><div id="nickname"></div></h1>
-<a id="gotoLogin" title="Go to login" href="#liffLoginButton">Silahkan Login</a>
-<H4>Silahkan pilih baju yang ingin anda beli</H4>
-<HR> 
+    <div class="row">
+        <div class="col-9">
+            <h1><div id="nickname"></div></h1>
+            <a id="gotoLogin" title="Go to login" href="#liffLoginButton">Silahkan Login</a>
+            <h4>Silahkan pilih baju yang ingin anda beli</h4>
+        </div>
+        <div class="col-3 align-self-center text-right">
+            <img id="profileImage" src="https://assets.currencycloud.com/wp-content/uploads/2018/01/profile-placeholder.gif" class="user" alt="Profile Image">
+        </div>
+    </div>
+<hr> 
 <div class="container">
   <div class="card-columns">
     <div class="card">
@@ -127,7 +134,7 @@
   <br>
 
   <div id="cart">
-    <h2>Keranjang Belanja TShop </h2><p>Anggap saja ini keranjang anda</p></center><hr>
+    <center><h2>Keranjang Belanja TShop </h2><p>Seluruh pemesanan anda akan tersimpan di keranjang</p></center><hr>
     <div id="cart-body"></div>
     <div id="totalCart" class="col-lg-12"></div>
   </div>

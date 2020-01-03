@@ -68,12 +68,12 @@ var mycart = [];
 
           $("#cart").css("visibility", "visible"); // jika tersedia maka tampilkan 
 
-          data_app = '<table class="table table-striped table-dark">';
-            data_app += '<thead>' +
+          data_app = '<div class="table-responsive"><table class="table table-striped">';
+            data_app += '<thead class="thead-dark">' +
                 '<th>Nama Produk</th>' +
                 '<th>Jumlah</th>' +
                 '<th>Harga</th>' +
-                '<th>Hapus</th>' +
+                '<th class="text-center">Hapus</th>' +
                 '</thead> <tbody>';
  
             for (i in mycart) {
@@ -83,11 +83,11 @@ var mycart = [];
                     '<td>' + item.Nama + ' </td>' +
                     '<td>' + item.Qty + ' </td>' +
                     '<td>' + formatRupiah(item.Price) + ' </td>' +
-                    '<td><button class="btn btn-danger btn-circle btn-small" onclick="deleteItem(' + i + ')"><i class="fa fa-trash"  > </i></button></td>';
+                    '<td class="table-danger" align="center"><button class="btn btn-danger btn-circle btn-small" onclick="deleteItem(' + i + ')"><i class="fa fa-trash"  > </i></button></td>';
                 data_app += '</tr>';
             }
  
-            data_app += '</tbody></table>';
+            data_app += '</tbody></table></div>';
             $('#cart-body').html(data_app);
 
           // untuk total
