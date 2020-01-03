@@ -21,7 +21,7 @@ window.onload = function() {
                 document.getElementById("nodeLiffIdErrorMessage").classList.remove('hidden');
             });
     } else {
-        myLiffId = defaultLiffId;
+        myLiffId = "1653657030-Kk24lV06";
         initializeLiffOrDie(myLiffId);
     }
 };
