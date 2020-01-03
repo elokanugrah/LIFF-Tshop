@@ -156,10 +156,11 @@ function registerButtonHandlers() {
             // alert(formatRupiah(total));
             sendAlertIfNotInClient();
         } else {
+            var num = 0;
             var chat_message = "Berikut keranjang belanjaan yang harus anda bayarkan: \n\n";
             for (i in mycart) {
                 var item = mycart[i];
-                var num = i++;
+                num = i++;
                 chat_message +=
                     'No. ' + num + ' \n' +
                     'Nama Produk: ' + item.Nama + ' \n' +
