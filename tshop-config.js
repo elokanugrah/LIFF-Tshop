@@ -1,5 +1,6 @@
 var mycart = [];
   var data_app = "";
+  var total = 0;
         $(function () {
             if (localStorage.mycart)
             {
@@ -53,14 +54,14 @@ var mycart = [];
         }
 
         function saveCart() {
-            if ( window.localStorage)
+            if (window.localStorage)
             {
                 localStorage.mycart = JSON.stringify(mycart);
             }
         }
 
         function showCart() {
-          if (mycart.length == 0) { //cek nilai mycart, jika kosong maka hidden div dengan id cart
+          if (mycart.length == 0) { //cek nilai mycart dan localStorage mycart, jika kosong maka hidden div dengan id cart
                 $("#cart").css("visibility", "hidden");
                 data_app = "";
                 return;
@@ -90,8 +91,6 @@ var mycart = [];
             data_app += '</tbody></table></div>';
             $('#cart-body').html(data_app);
 
-          // untuk total
-          var total = 0;
           for(var i = 0; i < mycart.length; i++) {
               total += mycart[i].Subtotal; //jumlahkan keseluruhan row subtotal dari mycart untuk mendapatkan total
           }

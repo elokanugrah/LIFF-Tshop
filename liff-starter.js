@@ -153,15 +153,21 @@ function registerButtonHandlers() {
 
     document.getElementById('sendMessageButton').addEventListener('click', function() {
         if (!liff.isInClient()) {
+            // alert(formatRupiah(total));
             sendAlertIfNotInClient();
         } else {
             liff.sendMessages([{
                 'type': 'text',
                 'text': "Azzzzzz!"
             }]).then(function() {
-                window.alert('Ini adalah pesan dari fitur Send Message');
+                // if (mycart.length > 0) {
+                //     mycart.splice(0,mycart.length)
+                //     showCart();
+                //     saveCart();
+                // }
+                console.log('message sent');
             }).catch(function(error) {
-                window.alert('Error sending message: ' + error);
+                console.log('error', err);
             });
         }
     });
