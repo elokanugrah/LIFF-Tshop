@@ -158,7 +158,7 @@ function registerButtonHandlers() {
         } else {
             liff.sendMessages([{
                 'type': 'text',
-                'text': "Azzzzzz!<br>asdfasdfsdf"
+                'text': "Azzzzzz\nasdfasdfsdf"
             }]).then(function() {
                 // if (mycart.length > 0) {
                 //     mycart.splice(0,mycart.length)
