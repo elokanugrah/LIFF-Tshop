@@ -1,0 +1,36 @@
+body {
+  padding: 2rem 0rem;
+}
+
+.card-img-overlay{
+  opacity: 0;
+  transition: .5s ease;
+}
+
+.card:hover .card-img-overlay{
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 1;
+}
+
+#gotoCart {
+  width: 40px;
+  line-height: 40px;
+  overflow: hidden;
+  -moz-transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+  position: fixed;
+  bottom: 50px;
+  right: 0;
+  background-color: #DDD;
+  color: #555;
+  text-align: center;
+  font-size: 30px;
+  text-decoration: none;
+}
+#gotoCart:hover {
+  background-color: #DDF;
+  color: #000;
+}
