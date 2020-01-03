@@ -151,7 +151,7 @@ function registerButtonHandlers() {
         }
     });
 
-    document.getElementById('sendMessageButton').addEventListener('click', function() {
+    document.getElementById('checkout').addEventListener('click', function() {
         if (!liff.isInClient()) {
             // alert(formatRupiah(total));
             sendAlertIfNotInClient();
@@ -160,7 +160,7 @@ function registerButtonHandlers() {
             for (i in mycart) {
                 var item = mycart[i];
                 chat_message +=
-                    'No. ' + i+1 + ' \n' +
+                    'No. ' + (i+1) + ' \n' +
                     'Nama Produk: ' + item.Nama + ' \n' +
                     'Jumlah: ' + item.Qty + ' \n' +
                     'Harga: ' + formatRupiah(item.Price) + ' \n';
