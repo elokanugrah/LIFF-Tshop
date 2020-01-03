@@ -1,12 +1,14 @@
 var mycart = [];
   var data_app = "";
-  function loadCart() {
-    if (localStorage.mycart)
+        $(function () {
+            if (localStorage.mycart)
             {
                 mycart = JSON.parse(localStorage.mycart);
                 showCart();
             }
-        }   
+        });
+
+      
       // mengambil data button ketika button dengan class add di click
       $('.add').click(function(){
 
