@@ -2,6 +2,7 @@ var mycart = [];
 var total = 0;
 var qty_total = 0;
 var data_app = "";
+var dispName = "";
 $(function () {
     if (localStorage.mycart)
     {

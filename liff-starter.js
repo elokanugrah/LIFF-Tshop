@@ -98,7 +98,8 @@ function displayIsInClientInfo() {
 
 function displayClientProfile() {
     liff.getProfile().then(function(profile) {
-        document.getElementById('nickname').textContent = "Hai, " + profile.displayName;
+        dispName = profile.displayName;
+        document.getElementById('nickname').textContent = "Hai, " + dispName;
         document.getElementById("profileImage").src = profile.pictureUrl;;
     }).catch(function(error) {
         document.getElementById('nickname').textContent = "";
@@ -155,7 +156,7 @@ function registerButtonHandlers() {
             // sendAlertIfNotInClient();
         } else {
             var num = 0;
-            var chat_message = "Hai "+ liff.getProfile().displayName +",\nTerima kasih telah berbelanja di Tshop \nBerikut keranjang belanjaan yang harus anda bayarkan: \n\n";
+            var chat_message = "Hai "+ dispName +",\nTerima kasih telah berbelanja di TShop \nBerikut keranjang belanjaan yang harus anda bayarkan: \n\n";
             for (i in mycart) {
                 var item = mycart[i];
                 num++;
