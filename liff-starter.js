@@ -155,7 +155,7 @@ function registerButtonHandlers() {
             // sendAlertIfNotInClient();
         } else {
             var num = 0;
-            var chat_message = "Berikut keranjang belanjaan yang harus anda bayarkan: \n\n";
+            var chat_message = "Hai "+ liff.getProfile().displayName +",\nTerima kasih telah berbelanja di Tshop \nBerikut keranjang belanjaan yang harus anda bayarkan: \n\n";
             for (i in mycart) {
                 var item = mycart[i];
                 num++;
