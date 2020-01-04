@@ -160,33 +160,11 @@ function registerButtonHandlers() {
             document.getElementById('exampleModalCenterTitle').textContent = "Hai, " + dispName;
             document.getElementById('cartModal-text').textContent = "Terima kasih telah berbelanja di TShop. Berikut adalah keranjang belanjaan yang harus anda lunasi: ";
             
-            var num = 0;
-            var chat_message = "Hai "+ dispName +",\nTerima kasih telah berbelanja di TShop \nBerikut keranjang belanjaan yang harus anda lunasi: \n\n";
-            for (i in mycart) {
-                var item = mycart[i];
-                num++;
-                chat_message +=
-                    'No. ' + num + ' \n' +
-                    'Nama Produk: ' + item.Nama + ' \n' +
-                    'Jumlah: ' + item.Qty + ' \n' +
-                    'Harga: ' + formatRupiah(item.Price) + ' \n';
-                chat_message += '\n';
+            if (mycart.length > 0) {
+                mycart.splice(0,mycart.length);
+                showCart();
+                saveCart();
             }
-            chat_message += 'Total belanja \n' + formatRupiah(total);
-            liff.sendMessages([{
-                'type': 'text',
-                'text': chat_message
-            }]).then(function() {
-                if (mycart.length > 0) {
-                    mycart.splice(0,mycart.length);
-                    showCart();
-                    saveCart();
-                    liff.closeWindow();
-                }
-                console.log('message sent');
-            }).catch(function(error) {
-                console.log('error', error);
-            });
 
         } else {
             document.getElementById("checkout").removeAttribute("data-toggle");
