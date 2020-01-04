@@ -185,9 +185,9 @@ function registerButtonHandlers() {
                 }
                 console.log('message sent');
             }).catch(function(error) {
-                console.log('error', err);
+                console.log('error', error);
             });
-            
+
         } else {
             document.getElementById("checkout").removeAttribute("data-toggle");
             document.getElementById("checkout").removeAttribute("data-target");
@@ -217,7 +217,7 @@ function registerButtonHandlers() {
                 }
                 console.log('message sent');
             }).catch(function(error) {
-                console.log('error', err);
+                console.log('error', error);
             });
         }
     });
