@@ -100,7 +100,7 @@ function displayClientProfile() {
     liff.getProfile().then(function(profile) {
         dispName = profile.displayName;
         document.getElementById('nickname').textContent = "Hai, " + dispName;
-        document.getElementById("profileImage").src = profile.pictureUrl;;
+        document.getElementById("profileImage").src = profile.pictureUrl;
     }).catch(function(error) {
         document.getElementById('nickname').textContent = "";
     });
@@ -152,11 +152,48 @@ function registerButtonHandlers() {
 
     document.getElementById('checkout').addEventListener('click', function() {
         if (!liff.isInClient()) {
-            alert(formatRupiah(total));
             // sendAlertIfNotInClient();
-        } else {
+            totalCartModal.innerHTML='<label>Total Belanja Anda : '+formatRupiah(total)+'  </label><br><br><br>'; 
+            document.getElementById("checkout").setAttribute("data-toggle", "modal");
+            document.getElementById("checkout").setAttribute("data-target", "#exampleModalCenter");
+
+            document.getElementById('exampleModalCenterTitle').textContent = "Hai, " + dispName;
+            document.getElementById('cartModal-text').textContent = "Terima kasih telah berbelanja di TShop. Berikut adalah keranjang belanjaan yang harus anda lunasi: ";
+            
             var num = 0;
-            var chat_message = "Hai "+ dispName +",\nTerima kasih telah berbelanja di TShop \nBerikut keranjang belanjaan yang harus anda bayarkan: \n\n";
+            var chat_message = "Hai "+ dispName +",\nTerima kasih telah berbelanja di TShop \nBerikut keranjang belanjaan yang harus anda lunasi: \n\n";
+            for (i in mycart) {
+                var item = mycart[i];
+                num++;
+                chat_message +=
+                    'No. ' + num + ' \n' +
+                    'Nama Produk: ' + item.Nama + ' \n' +
+                    'Jumlah: ' + item.Qty + ' \n' +
+                    'Harga: ' + formatRupiah(item.Price) + ' \n';
+                chat_message += '\n';
+            }
+            chat_message += 'Total belanja \n' + formatRupiah(total);
+            liff.sendMessages([{
+                'type': 'text',
+                'text': chat_message
+            }]).then(function() {
+                if (mycart.length > 0) {
+                    mycart.splice(0,mycart.length);
+                    showCart();
+                    saveCart();
+                    liff.closeWindow();
+                }
+                console.log('message sent');
+            }).catch(function(error) {
+                console.log('error', err);
+            });
+            
+        } else {
+            document.getElementById("checkout").removeAttribute("data-toggle");
+            document.getElementById("checkout").removeAttribute("data-target");
+
+            var num = 0;
+            var chat_message = "Hai "+ dispName +",\nTerima kasih telah berbelanja di TShop \nBerikut keranjang belanjaan yang harus anda lunasi: \n\n";
             for (i in mycart) {
                 var item = mycart[i];
                 num++;

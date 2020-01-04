@@ -2,6 +2,7 @@ var mycart = [];
 var total = 0;
 var qty_total = 0;
 var data_app = "";
+var data_modal = "";
 var dispName = "";
 $(function () {
     if (localStorage.mycart)
@@ -66,6 +67,7 @@ function showCart() {
     if (mycart.length == 0) { //cek nilai mycart dan localStorage mycart, jika kosong maka hidden div dengan id cart
         $("#cart").css("visibility", "hidden");
         data_app = "";
+        data_modal = "";
         $('#gotoCart').fadeOut();
         $('.cart-quantity').html('0');
         return;
@@ -74,11 +76,18 @@ function showCart() {
     $("#cart").css("visibility", "visible"); // jika tersedia maka tampilkan 
 
     data_app = '<div class="table-responsive"><table class="table table-striped">';
+    data_modal = '<div class="table-responsive"><table class="table table-striped">';
+
     data_app += '<thead class="thead-dark">' +
         '<th>Nama Produk</th>' +
         '<th>Jumlah</th>' +
         '<th>Harga</th>' +
         '<th class="text-center">Hapus</th>' +
+        '</thead> <tbody>';
+    data_modal += '<thead class="thead-dark">' +
+        '<th>Nama Produk</th>' +
+        '<th>Jumlah</th>' +
+        '<th>Harga</th>' +
         '</thead> <tbody>';
 
     for (i in mycart) {
@@ -90,12 +99,21 @@ function showCart() {
             '<td>' + formatRupiah(item.Price) + ' </td>' +
             '<td class="table-danger" align="center"><button class="btn btn-danger btn-circle btn-small" onclick="deleteItem(' + i + ')"><i class="fa fa-trash"  > </i></button></td>';
         data_app += '</tr>';
+
+        data_modal += '<tr>';
+        data_modal +=
+            '<td>' + item.Nama + ' </td>' +
+            '<td>' + item.Qty + ' </td>' +
+            '<td>' + formatRupiah(item.Price) + ' </td>';
+            data_modal += '</tr>';
     }
 
     data_app += '</tbody></table></div>';
-    $('#cart-body').html(data_app);
+    data_modal += '</tbody></table></div>';
 
-    
+    $('#cart-body').html(data_app);
+    $('#cartModal-body').html(data_modal);
+
 total = 0;
 qty_total = 0;
     for(var i = 0; i < mycart.length; i++) {
