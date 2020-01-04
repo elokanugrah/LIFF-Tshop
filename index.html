@@ -18,11 +18,12 @@
     <div class="row">
         <div class="col-9">
             <h1><div id="nickname"></div></h1>
-            <a id="gotoLogin" title="Go to login" href="#liffLoginButton">Silahkan Login</a>
+            <a id="liffLoginButton" title="Go to login" href="#">Silahkan Login</a>
             <h4>Silahkan pilih baju yang ingin anda beli</h4>
         </div>
         <div class="col-3 align-self-top text-right">
-            <img id="profileImage" src="https://assets.currencycloud.com/wp-content/uploads/2018/01/profile-placeholder.gif" class="user img-thumbnail" alt="Profile Image">
+          <img id="profileImage" src="https://assets.currencycloud.com/wp-content/uploads/2018/01/profile-placeholder.gif" class="user img-thumbnail text-center" alt="Profile Image">
+          <a id="liffLogoutButton" title="Loguot" href="#">Log out</a>
         </div>
     </div>
 <hr> 
@@ -146,9 +147,8 @@
             <!-- ACTION BUTTONS -->
             <div class="buttonGroup">
                 <div class="buttonRow">
-                    <button id="openWindowButton" class="btn btn-success btn-small">Open External Window</button>
-                    <button id="closeWindowButton" class="btn btn-danger btn-small">Close LIFF App</button>
-                    <button id="sendMessageButton" class="btn btn-warning btn-small">Send Message</button>
+                    <button id="openWindowButton" class="btn btn-success btn-small hidden">Open External Window</button>
+                    <button id="closeWindowButton" class="btn btn-danger btn-small hidden">Close LIFF App</button>
                 </div>
  
             </div>
@@ -169,8 +169,6 @@
             </div>
             <!-- LOGIN LOGOUT BUTTONS -->
             <div class="buttonGroup">
-                <button id="liffLoginButton" class="btn btn-success btn-small">Log in</button>
-                <button id="liffLogoutButton" class="btn btn-warning btn-small">Log out</button>
             </div>
             <div id="statusMessage">
                 <div id="isInClientMessage"></div>
@@ -214,7 +212,8 @@
 
 </div>
 
-<a id="gotoCart" title="Go to cart" href="#cart"><i class="fa fa-shopping-cart" aria-hidden="true" ></i></a>
+<a id="gotoCart" title="Go to cart" href="#cart"><span class="cart-quantity">0</span><i class="fa fa-shopping-cart" aria-hidden="true" ></i>
+</a>
 
 </body>
 <script src="tshop-config.js"></script>

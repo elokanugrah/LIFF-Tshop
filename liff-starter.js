@@ -69,9 +69,9 @@ function initializeApp() {
  
     // check if the user is logged in/out, and disable inappropriate button
     if (liff.isLoggedIn()) {
-        document.getElementById('liffLoginButton').disabled = true;
+        document.getElementById('liffLoginButton').classList.add('hidden');
     } else {
-        document.getElementById('liffLogoutButton').disabled = true;
+        document.getElementById('liffLogoutButton').classList.add('hidden');
     }
 }
  
@@ -98,11 +98,9 @@ function displayIsInClientInfo() {
 
 function displayClientProfile() {
     liff.getProfile().then(function(profile) {
-        document.getElementById('gotoLogin').classList.add('hidden');
         document.getElementById('nickname').textContent = "Hai, " + profile.displayName;
         document.getElementById("profileImage").src = profile.pictureUrl;;
     }).catch(function(error) {
-        document.getElementById('gotoLogin').classList.remove('hidden');
         document.getElementById('nickname').textContent = "";
     });
 }
@@ -153,8 +151,8 @@ function registerButtonHandlers() {
 
     document.getElementById('checkout').addEventListener('click', function() {
         if (!liff.isInClient()) {
-            // alert(formatRupiah(total));
-            sendAlertIfNotInClient();
+            alert(formatRupiah(total));
+            // sendAlertIfNotInClient();
         } else {
             var num = 0;
             var chat_message = "Berikut keranjang belanjaan yang harus anda bayarkan: \n\n";
@@ -174,9 +172,10 @@ function registerButtonHandlers() {
                 'text': chat_message
             }]).then(function() {
                 if (mycart.length > 0) {
-                    mycart.splice(0,mycart.length)
+                    mycart.splice(0,mycart.length);
                     showCart();
                     saveCart();
+                    liff.closeWindow();
                 }
                 console.log('message sent');
             }).catch(function(error) {
